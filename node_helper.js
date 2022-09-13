@@ -2,7 +2,7 @@ const NodeHelper = require("node_helper");
 var admin = require("firebase-admin");
 var firestore = require("firebase-admin/firestore");
 
-var serviceAccount = require("./nodejs.json");
+var serviceAccount = require("./credentials.json");
 
 const db = firestore.getFirestore();
 

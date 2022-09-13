@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/danbi7184/MMM-ToDoList/issues"
   },
-  "homepage": "https://github.com/danbi7184/MMM-ToDoList#readme"
+  "homepage": "https://github.com/danbi7184/MMM-ToDoList#readme",
+  "dependencies": {
+    "firebase-admin": "^11.0.1"
+  }
 }
