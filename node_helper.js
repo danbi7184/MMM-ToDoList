@@ -32,7 +32,7 @@ module.exports = NodeHelper.create({
 	},
 
 	stop: function() {
-		firebase
+		admin
 			.database()
 			.ref(this.config.databaseURL)
 			.off();
