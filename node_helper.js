@@ -16,8 +16,6 @@ module.exports = NodeHelper.create({
 
 	socketNotificationReceived: function(notification, payload) {
 		if(notification === 'GET_LIST') {
-			this.config = payload;
-			firebase.initializeApp(payload.firebaseConfig);
 			this.getToDoList();
 			return true;
 		}
