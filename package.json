@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/danbi7184/MMM-ToDoList#readme",
   "dependencies": {
+    "firebase": "^9.9.4",
     "firebase-admin": "^11.0.1"
   }
 }
