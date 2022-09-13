@@ -5,13 +5,13 @@ var firestore = require("firebase-admin/firestore");
 var serviceAccount = require("./credentials.json");
 
 const db = firestore.getFirestore();
+admin.initializeApp({
+	credential: admin.credential.cert(serviceAccount)
+});
 
 module.exports = NodeHelper.create({
 	start: function() {
 		console.log("Starting nodehelper: " + this.name);
-		admin.initializeApp({
-			credential: admin.credential.cert(serviceAccount)
-		});
 	},
 
 	socketNotificationReceived: function(notification, payload) {
@@ -31,4 +31,10 @@ module.exports = NodeHelper.create({
 		});
 	},
 
+	stop: function() {
+		admin
+			.database()
+			.ref(this.config.databaseURL)
+			.off();
+	},
 });
