@@ -23,15 +23,12 @@ module.exports = NodeHelper.create({
 	},
 
 	getToDoList: async function() {
-		let self = this
-		firestoreStub = sinon.stub(admin, 'firestore')
-			.get(function() {
-				return function() {
-					return "data";
-				}
- 			});
-
-		console.log(data);
+		let self = this;
+		db.collection("ToDoList").get().then((result) => {
+			result.forEach((doc) => {
+				self.sendSocketNotification("CHECK_LIST", doc.data().checked);
+			});
+		});
 	},
 
 	stop: function() {
