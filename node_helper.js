@@ -31,10 +31,4 @@ module.exports = NodeHelper.create({
 		});
 	},
 
-	stop: function() {
-		admin
-			.database()
-			.ref(this.config.databaseURL)
-			.off();
-	},
 });
