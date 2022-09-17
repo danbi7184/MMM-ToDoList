@@ -40,7 +40,9 @@ Module.register("MMM-ToDoList", {
 			ToDoTable.appendChild(RowArr[i]);
 
 			checkArr[i] = document.createElement("td");
-			checkArr[i].innerHTML = check[i];
+			if(check[i] == 'true' || check[i] == true) {
+				checkArr[i].classNAme = 'fa-solid fa-check';
+			}
 			RowArr[i].appendChild(checkArr[i]);
 
 			listArr[i] = document.createElement("td");
