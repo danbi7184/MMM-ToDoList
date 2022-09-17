@@ -8,7 +8,7 @@ Module.register("MMM-ToDoList", {
     },
 
 	getHeader: function () {
-		return "<i class='fa-light fa-memo fa-10x' style='color:#ffffff'></i> " + this.config.header;
+		return "<i class='fa-regular fa-memo'></i> " + this.config.header;
 	},
 
 	start: function () {
