@@ -60,10 +60,12 @@ Module.register("MMM-ToDoList", {
 			inputArr[i].onclick = () => {
 				if(inputArr[i].checked) {
 					inputArr[i].checked = false;
-					listArr[i].className = "none";
+					listArr[i].style.color = "#ffffff";
+					listArr[i].style.textDecoration = 'none';
 				} else {
 					inputArr[i].checked = true;
-					listArr[i].color = "line-through"
+					listArr[i].style.color = "#A5A5A5";
+				listArr[i].style.textDecoration = 'line-through';
 				}
 			}
 
