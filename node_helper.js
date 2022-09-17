@@ -9,21 +9,19 @@ var db;
 module.exports = NodeHelper.create({
 	start: function() {
 		console.log("Starting nodehelper: " + this.name);
-		try {
-			admin.initializeApp({
-				credential: admin.credential.cert(serviceAccount)
-			});
-		}  catch(error) {
-		}
-		db = firestore.getFirestore();
 	},
 
 	socketNotificationReceived: function(notification) {
 		if(notification === 'GET_LIST') {
+			try {
+				admin.initializeApp({
+					credential: admin.credential.cert(serviceAccount)
+				});
+			}  catch(error) {
+			}
+			db = firestore.getFirestore();
 			this.getToDoList();
-			return true;
 		}
-		return false;
 	},
 
 	getToDoList: async function() {
