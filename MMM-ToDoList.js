@@ -45,10 +45,10 @@ Module.register("MMM-ToDoList", {
 
 			listArr[i] = document.createElement("td");
 			listArr[i].innerHTML = list[i];
-			if(checkArr[i] == true || checkArr[i] == "true") {
-				listArr[i].className = "none";
-			} else {
+			if(checkArr[i] == false || checkArr[i] == "false") {
 				listArr[i].className = "line-through";
+			} else {
+				listArr[i].className = "none";
 			}
 			RowArr[i].appendChild(listArr[i]);
 		}
