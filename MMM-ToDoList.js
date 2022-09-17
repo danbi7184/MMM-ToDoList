@@ -8,7 +8,7 @@ Module.register("MMM-ToDoList", {
     },
 
 	getHeader: function () {
-		return "<i class='fa fa-fw fa-subway'></i> " + this.config.header;
+		return "<i class='fa-regular fa-memo'></i> " + this.config.header;
 	},
 
 	start: function () {
@@ -40,7 +40,11 @@ Module.register("MMM-ToDoList", {
 			ToDoTable.appendChild(RowArr[i]);
 
 			checkArr[i] = document.createElement("td");
-			checkArr[i].innerHTML = check[i];
+			if(check[i] == true) {
+				checkArr[i].innerHTML = '<i class="fa-solid fa-check"></i>';
+			} else {
+				
+			}
 			RowArr[i].appendChild(checkArr[i]);
 
 			listArr[i] = document.createElement("td");
