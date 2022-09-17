@@ -23,6 +23,7 @@ Module.register("MMM-ToDoList", {
 		var list = this.listInfo;
 		var check = this.checkInfo;
 
+		var RowArr = new Array();
 		var listArr = new Array();
 		var checkArr = new Array();
 
