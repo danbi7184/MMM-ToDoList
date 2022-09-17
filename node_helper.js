@@ -2,15 +2,12 @@ const NodeHelper = require("node_helper");
 var admin = require("firebase-admin");
 var firestore = require("firebase-admin/firestore");
 
-var serviceAccount = require("credentials.json");
+var serviceAccount = require("./credentials.json");
 
 admin.initializeApp({
 	credential: admin.credential.cert(serviceAccount),
 	databaseURL: "https://todolisteg-2b6f9-default-rtdb.firebaseio.com"
 });
-
-var db = firestore.getFirestore();
-
 
 module.exports = NodeHelper.create({
 	start: function() {
@@ -19,6 +16,7 @@ module.exports = NodeHelper.create({
 
 	socketNotificationReceived: function(notification, payload) {
 		if(notification === 'GET_LIST') {
+			var db = firestore.getFirestore();
 			this.getToDoList();
 			return true;
 		}
