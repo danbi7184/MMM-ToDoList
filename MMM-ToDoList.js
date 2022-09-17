@@ -43,6 +43,15 @@ Module.register("MMM-ToDoList", {
 			checkArr[i] = document.createElement("td");
 			inputArr[i] = document.createElement("input");
 			inputArr[i].type = 'checkbox';
+
+			inputArr[i].onclick = () => {
+				if(inputArr[i].checked) {
+					inputArr[i].checked = false;
+				} else {
+					inputArr[i].checked = 'checked';
+				}
+			}
+
 			checkArr[i].appendChild(inputArr[i]);
 			RowArr[i].appendChild(checkArr[i]);
 
