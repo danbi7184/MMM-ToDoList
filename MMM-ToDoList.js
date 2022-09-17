@@ -20,20 +20,20 @@ Module.register("MMM-ToDoList", {
 		if (!this.loaded) {
 				return wrapper;
 		}
-		var listInfo = this.listInfo;
-		var checkInfo = this.CheckInfo;
+		var list = this.listInfo;
+		var checked = this.CheckInfo;
 
 		var ToDoTable = document.createElement("table");
 		ToDoTable.className = "small";
 
 		var check = document.createElement("tr");
 		check.className = "title bright";
-		check.innerHTML = checkInfo[0];
+		check.innerHTML = checked[0];
 		ToDoTable.appendChild(check);
 
 
 		var Todo1 = document.createElement("td");
-		Todo1.innerHTML = listInfo[0];
+		Todo1.innerHTML = list[0];
 		check.appendChild(Todo1);
 
 		wrapper.appendChild(ToDoTable);
@@ -59,12 +59,13 @@ Module.register("MMM-ToDoList", {
 	socketNotificationReceived: function (notification, payload) {
 	  switch (notification) {
 		case "LIST":
-		  this.loaded = true;
-		  console.log("NotificationReceived:" + notification);
-		  this.listInfo = payload;
-		  this.updateDom();
-		  break;
+			this.loaded = true;
+			console.log("NotificationReceived:" + notification);
+			this.listInfo = payload;
+			this.updateDom();
+			break;
 		case "CHECK":
+			this.loaded = true;
 			console.log("NotificationReceived:" + notification);
 			this.checkInfo = payload;
 			this.updateDom();
