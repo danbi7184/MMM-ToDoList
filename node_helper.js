@@ -9,7 +9,7 @@ module.exports = NodeHelper.create({
 	start: function() {
 		console.log("Starting nodehelper: " + this.name);
 		admin.initializeApp({
-			credential: admin.credential.cert(serviceAccount)
+			credential: admin.credential.cert(serviceAccount);
 		});
 		
 		var db = firestore.getFirestore();
