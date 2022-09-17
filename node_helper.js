@@ -36,8 +36,8 @@ module.exports = NodeHelper.create({
 				check[i] = doc.data().checked;
 				i++;
 			});
-			console.log(list);
-			self.sendSocketNotification("CHECKLIST", list);
+			self.sendSocketNotification("LIST", list);
+			self.sendSocketNotification("CHECK", check);
 		});
 	},
 });
