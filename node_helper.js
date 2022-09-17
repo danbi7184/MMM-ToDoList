@@ -21,7 +21,8 @@ module.exports = NodeHelper.create({
 	getToDoList: async function() {
 		let self = this;
 		admin.initializeApp({
-			credential: admin.credential.cert(serviceAccount)
+			credential: admin.credential.cert(serviceAccount),
+			databaseURL: "https://todolisteg-2b6f9-default-rtdb.firebaseio.com/"
 		});
 		var db = firestore.getFirestore();
 
