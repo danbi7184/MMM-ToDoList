@@ -4,10 +4,11 @@ var firestore = require("firebase-admin/firestore");
 
 var serviceAccount = require("./credentials.json");
 
-const db = firestore.getFirestore();
 admin.initializeApp({
 	credential: admin.credential.cert(serviceAccount)
 });
+
+const db = firestore.getFirestore();
 
 module.exports = NodeHelper.create({
 	start: function() {
