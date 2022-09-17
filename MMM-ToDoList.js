@@ -32,7 +32,7 @@ Module.register("MMM-ToDoList", {
 
 
 		var Todo1 = document.createElement("td");
-		Todo1.innerHTML = info;
+		Todo1.innerHTML = info[0];
 		check.appendChild(Todo1);
 
 		wrapper.appendChild(ToDoTable);
