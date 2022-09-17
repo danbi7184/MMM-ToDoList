@@ -24,7 +24,7 @@ Module.register("MMM-ToDoList", {
 		ToDoTable.className = "small";
 
 		var check = document.createElement("tr");
-		check.innerHTML = "1";
+		check.innerHTML = "가나다";
 		ToDoTable.appendChild(check);
 
 		var CheckInfo = this.CheckInfo;
