@@ -46,6 +46,10 @@ Module.register("MMM-ToDoList", {
 	  switch (notification) {
 		case "DOM_OBJECTS_CREATED":
 		  this.getListInfo();
+		  var timer = setInterval(() => {
+			this.getSubwayInfo();
+		  }, 60000);
+		  break;
 	  }
 	},
 
