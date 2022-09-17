@@ -21,7 +21,7 @@ Module.register("MMM-ToDoList", {
 				return wrapper;
 		}
 		var list = this.listInfo;
-		var checked = this.CheckInfo;
+		var checked = this.checkInfo;
 
 		var ToDoTable = document.createElement("table");
 		ToDoTable.className = "small";
