@@ -40,15 +40,16 @@ Module.register("MMM-ToDoList", {
 			ToDoTable.appendChild(RowArr[i]);
 
 			checkArr[i] = document.createElement("td");
-			if(check[i] == true) {
-				checkArr[i].innerHTML = '<i class="fa fa-check"></i>';
-			} else {
-
-			}
+			checkArr[i].innerHTML = check[i];
 			RowArr[i].appendChild(checkArr[i]);
 
 			listArr[i] = document.createElement("td");
 			listArr[i].innerHTML = list[i];
+			if(checkArr[i] = true) {
+				listArr[i].className = "none";
+			} else {
+				listArr[i].className = "line-through";
+			}
 			RowArr[i].appendChild(listArr[i]);
 		}
 
