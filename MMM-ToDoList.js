@@ -44,7 +44,7 @@ Module.register("MMM-ToDoList", {
 	  this.sendSocketNotification("GET_LIST");
 	},
 
-	notificationReceived: function (notification, payload, sender) {
+	notificationReceived: function (notification) {
 	  switch (notification) {
 		case "DOM_OBJECTS_CREATED":
 		  this.getListInfo();
