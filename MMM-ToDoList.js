@@ -35,8 +35,6 @@ Module.register("MMM-ToDoList", {
 			RowArr[i] = 'row' + i;
 			listArr[i] = 'list' + i;
 			checkArr[i] = 'check' + i;
-			inputArr[i] = 'input' + i;
-			inputArr[i].Id = 'input' + i;
 
 			RowArr[i] = document.createElement("tr");
 			RowArr[i].className = "title bright";
@@ -59,13 +57,13 @@ Module.register("MMM-ToDoList", {
 				listArr[i].style.textDecoration = 'none';
 			}
 
-			var checkbox = document.getElementById(inputArr[i]).checked;
-
 			inputArr[i].onclick = () => {
-				if(checkbox) {
+				if(inputArr[i].checked) {
+					inputArr[i].checked = false;
 					listArr[i].style.color = '#ffffff';
 					listArr[i].style.textDecoration = 'none';
 				} else {
+					inputArr[i].checked = true;
 					listArr[i].style.color = '#A5A5A5';
 					listArr[i].style.textDecoration = 'line-through';
 				}
