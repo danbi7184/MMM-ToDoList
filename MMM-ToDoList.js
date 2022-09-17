@@ -40,9 +40,11 @@ Module.register("MMM-ToDoList", {
 
 			checkArr[i] = document.createElement("td");
 			checkArr[i].innerHTML = check[i];
+			ToDoTable.appendChild(checkArr[i]);
 
 			listArr[i] = document.createElement("td");
 			listArr[i].innerHTML = list[i];
+			ToDoTable.appendChild(listArr[i]);
 		}
 
 		wrapper.appendChild(ToDoTable);
