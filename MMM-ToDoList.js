@@ -49,23 +49,23 @@ Module.register("MMM-ToDoList", {
 			listArr[i].innerHTML = list[i];
 
 			if(check[i] == 'true' || check[i] == true) {
-				listArr[i].style.color = "#A5A5A5";
+				listArr[i].style.color = '#A5A5A5';
 				listArr[i].style.textDecoration = 'line-through';
 				inputArr[i].checked = true;
 			} else {
-				listArr[i].style.color = "#ffffff";
+				listArr[i].style.color = '#ffffff';
 				listArr[i].style.textDecoration = 'none';
 			}
 
 			inputArr[i].onclick = () => {
 				if(inputArr[i].checked) {
 					inputArr[i].checked = false;
-					listArr[i].style.color = "#ffffff";
+					listArr[i].style.color = '#ffffff';
 					listArr[i].style.textDecoration = 'none';
 				} else {
 					inputArr[i].checked = true;
-					listArr[i].style.color = "#A5A5A5";
-				listArr[i].style.textDecoration = 'line-through';
+					listArr[i].style.color = '#A5A5A5';
+					listArr[i].style.textDecoration = 'line-through';
 				}
 			}
 
