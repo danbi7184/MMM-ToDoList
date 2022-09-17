@@ -26,12 +26,15 @@ module.exports = NodeHelper.create({
 
 	getToDoList: async function() {
 		let self = this;
+		var list = Array();
+		var check = Array();
+		var i = 0;
 
 		db.collection("ToDoList").get().then((result) => {
 			result.forEach((doc) => {
-				data = doc.data();
-				console.log(data);
-				self.sendSocketNotification("CHECK_LIST", data);
+				list[i] = doc.data().list;
+				check[i] = doc.data().checked;
+				self.sendSocketNotification("CHECK_LIST", list);
 			});
 		});
 	},
