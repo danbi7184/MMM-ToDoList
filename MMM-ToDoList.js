@@ -20,7 +20,7 @@ Module.register("MMM-ToDoList", {
 		if (!this.loaded) {
 				return wrapper;
 		}
-		var CheckInfo = this.CheckInfo;
+		var info = this.CheckInfo;
 
 		var ToDoTable = document.createElement("table");
 		ToDoTable.className = "small";
@@ -32,7 +32,7 @@ Module.register("MMM-ToDoList", {
 
 
 		var Todo1 = document.createElement("td");
-		Todo1.innerHTML = CheckInfo;
+		Todo1.innerHTML = info;
 		check.appendChild(Todo1);
 
 		wrapper.appendChild(ToDoTable);
