@@ -58,8 +58,10 @@ Module.register("MMM-ToDoList", {
 			inputArr[i].onclick = () => {
 				if(inputArr[i].checked) {
 					inputArr[i].checked = false;
+					listArr[i].className = "none";
 				} else {
 					inputArr[i].checked = true;
+					listArr[i].className = "line-through"
 				}
 			}
 
