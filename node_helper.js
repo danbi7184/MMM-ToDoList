@@ -2,12 +2,14 @@ const NodeHelper = require("node_helper");
 var admin = require("firebase-admin");
 var firestore = require("firebase-admin/firestore");
 
-var serviceAccount = require("./credentials.json");
+var serviceAccount = require("credentials.json");
 
 admin.initializeApp({
 	credential: admin.credential.cert(serviceAccount),
 	databaseURL: "https://todolisteg-2b6f9-default-rtdb.firebaseio.com"
 });
+
+var db = firestore.getFirestore();
 
 
 module.exports = NodeHelper.create({
@@ -25,7 +27,6 @@ module.exports = NodeHelper.create({
 
 	getToDoList: async function() {
 		let self = this;
-		var db = firestore.getFirestore();
 
 		db.collection("ToDoList").get().then((result) => {
 			result.forEach((doc) => {
