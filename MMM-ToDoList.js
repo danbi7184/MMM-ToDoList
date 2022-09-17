@@ -4,7 +4,7 @@ Module.register("MMM-ToDoList", {
 	},
 
 	getStyles: function () {
-        return ['MMM-ToDoList.css'];
+    	return ['MMM-ToDoList.css'];
     },
 
 	getHeader: function () {
@@ -12,7 +12,7 @@ Module.register("MMM-ToDoList", {
 	},
 
 	start: function () {
-	  Log.info("Starting module: " + this.name);
+		Log.info("Starting module: " + this.name);
 	},
 
 	getDom: function () {
@@ -24,12 +24,13 @@ Module.register("MMM-ToDoList", {
 		ToDoTable.className = "small";
 
 		var check = document.createElement("tr");
+		check.innerHTML = "1";
 		ToDoTable.appendChild(check);
 
 		var CheckInfo = this.CheckInfo;
 
 		var Todo1 = document.createElement("td");
-        Todo1.innerHTML = CheckInfo[0];
+        Todo1.innerHTML = CheckInfo;
         check.appendChild(Todo1);
 
 		 wrapper.appendChild(ToDoTable);
