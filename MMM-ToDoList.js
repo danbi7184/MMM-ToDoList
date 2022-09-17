@@ -3,13 +3,13 @@ Module.register("MMM-ToDoList", {
 	default: {
 	},
 
-	getHeader: function () {
-		return "<i class='fa fa-fw fa-subway'></i> " + this.config.header;
-	},
-
-    getStyles: function () {
+	getStyles: function () {
         return ['MMM-ToDoList.css'];
     },
+
+	getHeader: function () {
+		return "<i class='fa-light fa-memo fa-10x' style='color:#ffffff'></i> " + this.config.header;
+	},
 
 	start: function () {
 	  Log.info("Starting module: " + this.name);
