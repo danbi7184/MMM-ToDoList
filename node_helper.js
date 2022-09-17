@@ -13,7 +13,7 @@ module.exports = NodeHelper.create({
 		const db = firestore.getFirestore();
 	},
 
-	socketNotificationReceived: function(notification, payload) {
+	socketNotificationReceived: function(notification) {
 		if(notification === 'GET_LIST') {
 			this.getToDoList();
 			return true;
@@ -29,12 +29,5 @@ module.exports = NodeHelper.create({
 				self.sendSocketNotification("CHECK_LIST", doc.data().checked);
 			});
 		});
-	},
-
-	stop: function() {
-		admin
-			.database()
-			.ref(this.config.databaseURL)
-			.off();
 	},
 });
