@@ -48,7 +48,7 @@ Module.register("MMM-ToDoList", {
 			listArr[i] = document.createElement("td");
 			listArr[i].innerHTML = list[i];
 
-			if(check[i] == 'true' || check[i] == true) {
+			if(check[i] == true) {
 				listArr[i].style.color = '#A5A5A5';
 				listArr[i].style.textDecoration = 'line-through';
 				inputArr[i].checked = true;
@@ -58,7 +58,7 @@ Module.register("MMM-ToDoList", {
 			}
 
 			inputArr[i].onclick = () => {
-				if(inputArr[i].checked == true) {
+				if(inputArr[i].checked) {
 					inputArr[i].checked = false;
 					listArr[i].style.color = '#ffffff';
 					listArr[i].style.textDecoration = 'none';
