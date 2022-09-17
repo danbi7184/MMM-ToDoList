@@ -39,29 +39,32 @@ Module.register("MMM-ToDoList", {
 			RowArr[i] = document.createElement("tr");
 			RowArr[i].className = "title bright";
 			ToDoTable.appendChild(RowArr[i]);
+			
 
 			checkArr[i] = document.createElement("td");
 			inputArr[i] = document.createElement("input");
 			inputArr[i].type = 'checkbox';
 
+			listArr[i] = document.createElement("td");
+			listArr[i].innerHTML = list[i];
+
+			if(check[i] == 'true' || check[i] == true) {
+				listArr[i].className = "none";
+				inputArr[i].checked = true;
+			} else {
+				listArr[i].className = "line-through";
+			}
+
 			inputArr[i].onclick = () => {
 				if(inputArr[i].checked) {
 					inputArr[i].checked = false;
 				} else {
-					inputArr[i].checked = 'checked';
+					inputArr[i].checked = true;
 				}
 			}
 
 			checkArr[i].appendChild(inputArr[i]);
 			RowArr[i].appendChild(checkArr[i]);
-
-			listArr[i] = document.createElement("td");
-			listArr[i].innerHTML = list[i];
-			if(check[i] == 'true' || check[i] == true) {
-				listArr[i].className = "none";
-			} else {
-				listArr[i].className = "line-through";
-			}
 			RowArr[i].appendChild(listArr[i]);
 		}
 
