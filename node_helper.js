@@ -5,8 +5,7 @@ var firestore = require("firebase-admin/firestore");
 var serviceAccount = require("./credentials.json");
 
 admin.initializeApp({
-	credential: admin.credential.cert(serviceAccount),
-	databaseURL: "https://todolisteg-2b6f9-default-rtdb.firebaseio.com"
+	credential: admin.credential.cert(serviceAccount)
 });
 
 module.exports = NodeHelper.create({
