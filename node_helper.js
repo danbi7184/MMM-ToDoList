@@ -2,17 +2,17 @@ const NodeHelper = require("node_helper");
 var admin = require("firebase-admin");
 var firestore = require("firebase-admin/firestore");
 
-var serviceAccount = require("credentials.json");
+var serviceAccount = require("./credentials.json");
 
-admin.initializeApp({
-	credential: admin.credential.cert(serviceAccount)
-});
-
-const db = firestore.getFirestore();
 
 module.exports = NodeHelper.create({
 	start: function() {
 		console.log("Starting nodehelper: " + this.name);
+		admin.initializeApp({
+			credential: admin.credential.cert(serviceAccount)
+		});
+		
+		var db = firestore.getFirestore();
 	},
 
 	socketNotificationReceived: function(notification, payload) {
