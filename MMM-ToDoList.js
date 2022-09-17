@@ -21,20 +21,29 @@ Module.register("MMM-ToDoList", {
 				return wrapper;
 		}
 		var list = this.listInfo;
-		var checked = this.checkInfo;
+		var check = this.checkInfo;
+
+		var listArr = new Array();
+		var checkArr = new Array();
 
 		var ToDoTable = document.createElement("table");
 		ToDoTable.className = "small";
 
-		var check = document.createElement("tr");
-		check.className = "title bright";
-		check.innerHTML = checked[0];
-		ToDoTable.appendChild(check);
+		for(var i=0; i<list.length; i++) {
+			RowArr[i] = 'row' + i;
+			listArr[i] = 'list' + i;
+			checkArr[i] = 'check' + i;
 
+			RowArr[i] = document.createElement("tr");
+			RowArr[i].className = "title bright";
+			ToDoTable.appendChild(RowArr[i]);
 
-		var Todo1 = document.createElement("td");
-		Todo1.innerHTML = list[0];
-		check.appendChild(Todo1);
+			checkArr[i] = document.createElement("td");
+			checkArr[i].innerHTML = check[i];
+
+			listArr[i] = document.createElement("td");
+			listArr[i].innerHTML = list[i];
+		}
 
 		wrapper.appendChild(ToDoTable);
 		return wrapper;
