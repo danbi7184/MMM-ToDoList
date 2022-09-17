@@ -4,6 +4,11 @@ var firestore = require("firebase-admin/firestore");
 
 var serviceAccount = require("./credentials.json");
 
+admin.initializeApp({
+	credential: admin.credential.cert(serviceAccount),
+	databaseURL: "https://todolisteg-2b6f9-default-rtdb.firebaseio.com"
+});
+
 
 module.exports = NodeHelper.create({
 	start: function() {
@@ -20,10 +25,6 @@ module.exports = NodeHelper.create({
 
 	getToDoList: async function() {
 		let self = this;
-		admin.initializeApp({
-			credential: admin.credential.cert(serviceAccount),
-			databaseURL: "https://todolisteg-2b6f9-default-rtdb.firebaseio.com/"
-		});
 		var db = firestore.getFirestore();
 
 		db.collection("ToDoList").get().then((result) => {
