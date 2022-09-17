@@ -26,7 +26,7 @@ Module.register("MMM-ToDoList", {
 		var RowArr = new Array();
 		var listArr = new Array();
 		var checkArr = new Array();
-		var checkIcon = new Array();
+		var inputArr = new Array();
 
 		var ToDoTable = document.createElement("table");
 		ToDoTable.className = "small";
@@ -41,11 +41,8 @@ Module.register("MMM-ToDoList", {
 			ToDoTable.appendChild(RowArr[i]);
 
 			checkArr[i] = document.createElement("td");
-			checkIcon[i] = document.createElement("i");
-			if(check[i] == 'true' || check[i] == true) {
-				checkIcon[i].className = 'fa-solid fa-check';
-			}
-			checkArr[i].appendChild(checkIcon[i]);
+			inputArr[i] = document.createElement("input");
+			inputArr[i].type = 'checkbox';
 			RowArr[i].appendChild(checkArr[i]);
 
 			listArr[i] = document.createElement("td");
