@@ -45,7 +45,7 @@ Module.register("MMM-ToDoList", {
 
 			listArr[i] = document.createElement("td");
 			listArr[i].innerHTML = list[i];
-			if(checkArr[i] = true) {
+			if(checkArr[i] === true) {
 				listArr[i].className = "none";
 			} else {
 				listArr[i].className = "line-through";
