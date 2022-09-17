@@ -16,25 +16,27 @@ Module.register("MMM-ToDoList", {
 	},
 
 	getDom: function () {
-	  var wrapper = document.createElement("div");
-	  if (!this.loaded) {
-			return wrapper;
-	  }
+		var wrapper = document.createElement("div");
+		if (!this.loaded) {
+				return wrapper;
+		}
+		var CheckInfo = this.CheckInfo;
+
 		var ToDoTable = document.createElement("table");
 		ToDoTable.className = "small";
 
 		var check = document.createElement("tr");
+		check.className = "title bright";
 		check.innerHTML = "가나다";
 		ToDoTable.appendChild(check);
 
-		var CheckInfo = this.CheckInfo;
 
 		var Todo1 = document.createElement("td");
-        Todo1.innerHTML = CheckInfo;
-        check.appendChild(Todo1);
+		Todo1.innerHTML = CheckInfo;
+		check.appendChild(Todo1);
 
-		 wrapper.appendChild(ToDoTable);
-		 return wrapper;
+		wrapper.appendChild(ToDoTable);
+		return wrapper;
 	},
 
 	getListInfo: function () {
