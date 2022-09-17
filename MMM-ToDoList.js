@@ -41,9 +41,9 @@ Module.register("MMM-ToDoList", {
 
 			checkArr[i] = document.createElement("td");
 			if(check[i] == true) {
-				checkArr[i].innerHTML = '<i class="fa-solid fa-check"></i>';
+				checkArr[i].innerHTML = '<i class="fa-solid fa-check" style="#ffffff"></i>';
 			} else {
-				
+
 			}
 			RowArr[i].appendChild(checkArr[i]);
 
