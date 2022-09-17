@@ -2,7 +2,7 @@ const NodeHelper = require("node_helper");
 var admin = require("firebase-admin");
 var firestore = require("firebase-admin/firestore");
 
-var serviceAccount = require("./credentials.json");
+var serviceAccount = require("credentials.json");
 
 admin.initializeApp({
 	credential: admin.credential.cert(serviceAccount)
