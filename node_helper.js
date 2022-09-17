@@ -30,6 +30,7 @@ module.exports = NodeHelper.create({
 		db.collection("ToDoList").get().then((result) => {
 			result.forEach((doc) => {
 				data = doc.data();
+				console.log(data);
 				self.sendSocketNotification("CHECK_LIST", data);
 			});
 		});
