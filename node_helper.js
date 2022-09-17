@@ -8,11 +8,6 @@ var serviceAccount = require("./credentials.json");
 module.exports = NodeHelper.create({
 	start: function() {
 		console.log("Starting nodehelper: " + this.name);
-		admin.initializeApp({
-			credential: admin.credential.cert(serviceAccount);
-		});
-		
-		var db = firestore.getFirestore();
 	},
 
 	socketNotificationReceived: function(notification, payload) {
@@ -25,6 +20,11 @@ module.exports = NodeHelper.create({
 
 	getToDoList: async function() {
 		let self = this;
+		admin.initializeApp({
+			credential: admin.credential.cert(serviceAccount)
+		});
+		var db = firestore.getFirestore();
+
 		db.collection("ToDoList").get().then((result) => {
 			result.forEach((doc) => {
 				self.sendSocketNotification("CHECK_LIST", doc.data().checked);
