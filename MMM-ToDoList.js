@@ -49,10 +49,10 @@ Module.register("MMM-ToDoList", {
 			listArr[i].innerHTML = list[i];
 
 			if(check[i] == 'true' || check[i] == true) {
-				listArr[i].className = "none";
+				listArr[i].className = "line-through"
 				inputArr[i].checked = true;
 			} else {
-				listArr[i].className = "line-through";
+				listArr[i].className = "none";
 			}
 
 			inputArr[i].onclick = () => {
