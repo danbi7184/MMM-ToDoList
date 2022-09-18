@@ -27,6 +27,7 @@ Module.register("MMM-ToDoList", {
 		var listArr = new Array();
 		var checkArr = new Array();
 		var inputArr = new Array();
+		var checkedArr = new Array();
 
 		var ToDoTable = document.createElement("table");
 		ToDoTable.className = "small";
@@ -52,9 +53,11 @@ Module.register("MMM-ToDoList", {
 				listArr[i].style.color = '#A5A5A5';
 				listArr[i].style.textDecoration = 'line-through';
 				inputArr[i].checked = true;
+				checkedArr[i] = true;
 			} else {
 				listArr[i].style.color = '#ffffff';
 				listArr[i].style.textDecoration = 'none';
+				checkedArr[i] = false;
 			}
 
 			checkArr[i].appendChild(inputArr[i]); 
@@ -64,7 +67,7 @@ Module.register("MMM-ToDoList", {
 
 		for(var k=0; k<list.length; k++) {
 			inputArr[k].onclick = () => {
-				var checked = inputArr[k].checked;
+				var checked = checkedArr[k];
 				if(checked) {
 					listArr[k].style.color = '#ffffff';
 					listArr[k].style.textDecoration = 'none';
