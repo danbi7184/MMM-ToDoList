@@ -27,7 +27,6 @@ Module.register("MMM-ToDoList", {
 		var listArr = new Array();
 		var checkArr = new Array();
 		var inputArr = new Array();
-		var checkedArr = new Array();
 
 		var ToDoTable = document.createElement("table");
 		ToDoTable.className = "small";
@@ -36,7 +35,6 @@ Module.register("MMM-ToDoList", {
 			RowArr[i] = 'row' + i;
 			listArr[i] = 'list' + i;
 			checkArr[i] = 'check' + i;
-			inputArr[i] = 'input' + i;
 
 			RowArr[i] = document.createElement("tr");
 			RowArr[i].className = "title bright";
@@ -53,25 +51,23 @@ Module.register("MMM-ToDoList", {
 			if(check[i] == 'true') {
 				listArr[i].style.color = '#A5A5A5';
 				listArr[i].style.textDecoration = 'line-through';
-				inputArr[i].checked = 'checked';
-				checkedArr[i] = true;
+				inputArr[i].checked = true;
 			} else {
 				listArr[i].style.color = '#ffffff';
 				listArr[i].style.textDecoration = 'none';
-				checkedArr[i]= false
 			}
 
-			inputArr[i].onclick = () => {
-				if(checkedArr[i]) {
-					inputArr[i].checked = false;
-					listArr[i].style.color = '#ffffff';
-					listArr[i].style.textDecoration = 'none';
-				} else {
-					inputArr[i].checked = 'checked';
-					listArr[i].style.color = '#A5A5A5';
-					listArr[i].style.textDecoration = 'line-through';
-				}
-			}
+			// inputArr[i].onclick = () => {
+			// 	if(inputArr[i].checked) {
+			// 		inputArr[i].checked = false;
+			// 		listArr[i].style.color = '#ffffff';
+			// 		listArr[i].style.textDecoration = 'none';
+			// 	} else {
+			// 		inputArr[i].checked = true;
+			// 		listArr[i].style.color = '#A5A5A5';
+			// 		listArr[i].style.textDecoration = 'line-through';
+			// 	}
+			// }
 
 			checkArr[i].appendChild(inputArr[i]);
 			RowArr[i].appendChild(checkArr[i]);
