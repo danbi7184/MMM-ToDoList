@@ -50,13 +50,11 @@ Module.register("MMM-ToDoList", {
 			listArr[i].innerHTML = list[i];
 
 			if(check[i] == 'true') {
-				listArr[i].style.color = '#A5A5A5';
-				listArr[i].style.textDecoration = 'line-through';
+				listArr[i].className = 'line-through';
 				inputArr[i].checked = true;
 				checkedArr[i] = true;
 			} else {
-				listArr[i].style.color = '#ffffff';
-				listArr[i].style.textDecoration = 'none';
+				listArr[i].className = 'none';
 				checkedArr[i] = false;
 			}
 
@@ -69,13 +67,11 @@ Module.register("MMM-ToDoList", {
 			inputArr[k].onclick = () => {
 				var checked = checkedArr[k];
 				if(checked) {
-					listArr[k].style.color = '#ffffff';
-					listArr[k].style.textDecoration = 'none';
+					listArr[k].className = 'none';
 					inputArr[k].checked = false;
 					checkedArr[k] = false;
 				} else {
-					listArr[k].style.color = '#A5A5A5';
-					listArr[k].style.textDecoration = 'line-through';
+					listArr[k].className = 'line-through';
 					inputArr[k].checked = true;
 					checkedArr[k] = true;
 				}
