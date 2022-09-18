@@ -66,13 +66,13 @@ Module.register("MMM-ToDoList", {
 				var getList = document.getElementById(listId);
 				if(checkedArr[k]) {
 					//getList.className = 'none';
-					checkedArr[k].checked = false;
+					//checkedArr[k].checked = false;
 					this.sendSocketNotification("TRUE", {
 						num: k,
 					});
 				} else {
 					//getList.className = 'line-through';
-					checkedArr[k].checked = true;
+					//checkedArr[k].checked = true;
 					this.sendSocketNotification("FALSE", {
 						num: k,
 					});
