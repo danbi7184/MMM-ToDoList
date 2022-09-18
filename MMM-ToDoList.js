@@ -55,22 +55,22 @@ Module.register("MMM-ToDoList", {
 				checkedArr[i] = false;
 			}
 
+			inputArr[i].onclick = click(this, i);
+
 			checkArr[i].appendChild(inputArr[i]); 
 			RowArr[i].appendChild(checkArr[i]);
-			RowArr[i].appendChild(listArr[i]);
+			RowArr[i].appendChild(listArr[i]);			
 		}
 
-		for(var k=0; k<list.length; k++) {
-			inputArr[k].onclick = () => {
-				var listId = 'list' + k;
-				var getList = document.getElementById(listId);
-				if(checkedArr[k]) {
-					getList.className = 'none';
-					checkedArr[k].checked = false;
-				} else {
-					getList.className = 'line-through';
-					checkedArr[k].checked = true;
-				}
+		function click(input, num) {
+			var num = 'list' + num;
+			var numId = document.getElementById(num);
+			if(input.checked == true) {
+				numId.className = 'none';
+				input.checked = false;
+			} else {
+				numId.className = 'line-through';
+				input.checked = true;
 			}
 		}
 
