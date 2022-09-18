@@ -27,15 +27,13 @@ Module.register("MMM-ToDoList", {
 		var listArr = new Array();
 		var checkArr = new Array();
 		var inputArr = new Array();
-		var checkedArr = new Array();
 
 		var ToDoTable = document.createElement("table");
 		ToDoTable.className = "small";
 
 		for(var i=0; i<list.length; i++) {
-			RowArr[i] = 'row' + i;
-			listArr[i] = 'list' + i;
-			checkArr[i] = 'check' + i;
+			listArr[i].Id = 'list' + i;
+			inputArr[i].Id = 'input' + i;
 
 			RowArr[i] = document.createElement("tr");
 			RowArr[i].className = "title bright";
@@ -52,10 +50,8 @@ Module.register("MMM-ToDoList", {
 			if(check[i] == 'true') {
 				listArr[i].className = 'line-through';
 				inputArr[i].checked = true;
-				checkedArr[i] = true;
 			} else {
 				listArr[i].className = 'none';
-				checkedArr[i] = false;
 			}
 
 			checkArr[i].appendChild(inputArr[i]); 
@@ -65,15 +61,16 @@ Module.register("MMM-ToDoList", {
 
 		for(var k=0; k<list.length; k++) {
 			inputArr[k].onclick = () => {
-				var checked = checkedArr[k];
-				if(checked) {
-					listArr[k].className = 'none';
-					inputArr[k].checked = false;
-					checkedArr[k] = false;
+				var listId = 'list' + k;
+				var inputId = 'input' + k; 
+				var getList = document.getElementById(listId);
+				var getInput = document.getElementById(inputId);
+				if(getInput.checked) {
+					getList[k].className = 'none';
+					getInput[k].checked = false;
 				} else {
-					listArr[k].className = 'line-through';
-					inputArr[k].checked = true;
-					checkedArr[k] = true;
+					getList[k].className = 'line-through';
+					getInput[k].checked = true;
 				}
 			}
 		}
