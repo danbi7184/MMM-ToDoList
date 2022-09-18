@@ -63,13 +63,13 @@ Module.register("MMM-ToDoList", {
 		}
 
 		function click(input, num) {
-			var num = 'list' + num;
-			var numId = document.getElementById(num);
+			var id = 'list' + num;
+			var id = document.getElementById(id);
 			if(input.checked == true) {
-				numId.className = 'none';
+				id.className = 'none';
 				input.checked = false;
 			} else {
-				numId.className = 'line-through';
+				id.className = 'line-through';
 				input.checked = true;
 			}
 		}
