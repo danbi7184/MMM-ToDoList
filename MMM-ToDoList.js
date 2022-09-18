@@ -32,8 +32,8 @@ Module.register("MMM-ToDoList", {
 		ToDoTable.className = "small";
 
 		for(var i=0; i<list.length; i++) {
-			listArr[i].Id = 'list' + i;
-			inputArr[i].Id = 'input' + i;
+			listArr[i].id = 'list' + i;
+			inputArr[i].id = 'input' + i;
 
 			RowArr[i] = document.createElement("tr");
 			RowArr[i].className = "title bright";
