@@ -29,8 +29,6 @@ Module.register("MMM-ToDoList", {
 		var inputArr = new Array();
 		var checkedArr = new Array();
 
-		function click(input, num);
-
 		var ToDoTable = document.createElement("table");
 		ToDoTable.className = "small";
 
@@ -57,22 +55,22 @@ Module.register("MMM-ToDoList", {
 				checkedArr[i] = false;
 			}
 
-			inputArr[i].onclick = click(this, i);
-
 			checkArr[i].appendChild(inputArr[i]); 
 			RowArr[i].appendChild(checkArr[i]);
-			RowArr[i].appendChild(listArr[i]);			
+			RowArr[i].appendChild(listArr[i]);
 		}
 
-		function click(input, num) {
-			var id = 'list' + num;
-			var id = document.getElementById(id);
-			if(input.checked == true) {
-				id.className = 'none';
-				input.checked = false;
-			} else {
-				id.className = 'line-through';
-				input.checked = true;
+		for(var k=0; k<list.length; k++) {
+			inputArr[k].onclick = () => {
+				var listId = 'list' + k;
+				var getList = document.getElementById(listId);
+				if(checkedArr[k]) {
+					getList.className = 'none';
+					checkedArr[k].checked = false;
+				} else {
+					getList.className = 'line-through';
+					checkedArr[k].checked = true;
+				}
 			}
 		}
 
