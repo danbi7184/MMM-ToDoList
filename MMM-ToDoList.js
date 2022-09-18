@@ -65,11 +65,17 @@ Module.register("MMM-ToDoList", {
 				var listId = 'list' + k;
 				var getList = document.getElementById(listId);
 				if(checkedArr[k]) {
-					getList.className = 'none';
+					//getList.className = 'none';
 					checkedArr[k].checked = false;
+					this.sendSocketNotification("TRUE", {
+						num: k,
+					});
 				} else {
-					getList.className = 'line-through';
+					//getList.className = 'line-through';
 					checkedArr[k].checked = true;
+					this.sendSocketNotification("FALSE", {
+						num: k,
+					});
 				}
 			}
 		}
@@ -106,6 +112,14 @@ Module.register("MMM-ToDoList", {
 			this.loaded = true;
 			console.log("NotificationReceived:" + notification);
 			this.checkInfo = payload;
+			this.updateDom();
+			break;
+		case "SET_TRUE":
+			console.log("NotificationReceived:" + notification);
+			this.updateDom();
+			break;
+		case "SET_FALSE":
+			console.log("NotificationReceived:" + notification);
 			this.updateDom();
 			break;
 	  }

@@ -9,18 +9,26 @@ var db;
 module.exports = NodeHelper.create({
 	start: function() {
 		console.log("Starting nodehelper: " + this.name);
+		try {
+			admin.initializeApp({
+				credential: admin.credential.cert(serviceAccount)
+			});
+		}  catch(error) {
+		}
+		db = firestore.getFirestore();
 	},
 
-	socketNotificationReceived: function(notification) {
-		if(notification === 'GET_LIST') {
-			try {
-				admin.initializeApp({
-					credential: admin.credential.cert(serviceAccount)
-				});
-			}  catch(error) {
-			}
-			db = firestore.getFirestore();
-			this.getToDoList();
+	socketNotificationReceived: function(notification, payload) {
+		switch(notification) {
+			case "GET_LIST":
+				this.getToDoList();
+				break;
+			case "TRUE":
+				this.setTrue(payload);
+				break;
+			case "FALSE":
+				this.setFalse(payload);
+				break;
 		}
 	},
 
@@ -40,4 +48,24 @@ module.exports = NodeHelper.create({
 			self.sendSocketNotification("CHECK", check);
 		});
 	},
+
+	setTrue: async function(payload) {
+		var self = this;
+		var doc = 'todo' + (payload.k + 1);
+	
+		db.collection("ToDoList").doc(doc).update({
+			checked: true,
+		});
+		self.sendSocketNotification("SET_TRUE");
+	},
+
+	setFalse: async function(payload) {
+		var self = this;
+		var doc = 'todo' + (payload.k + 1);
+		
+		db.collection("ToDoList").doc(doc).update({
+			checked: false,
+		});
+		self.sendSocketNotification("SET_FALSE");
+	}
 });
