@@ -9,24 +9,38 @@ var db;
 module.exports = NodeHelper.create({
 	start: function() {
 		console.log("Starting nodehelper: " + this.name);
-		try {
-			admin.initializeApp({
-				credential: admin.credential.cert(serviceAccount)
-			});
-		}  catch(error) {
-		}
-		db = firestore.getFirestore();
 	},
 
 	socketNotificationReceived: function(notification, payload) {
 		switch(notification) {
 			case "GET_LIST":
+				try {
+					admin.initializeApp({
+						credential: admin.credential.cert(serviceAccount)
+					});
+				}  catch(error) {
+				}
+				db = firestore.getFirestore();
 				this.getToDoList();
 				break;
 			case "TRUE":
+				try {
+					admin.initializeApp({
+						credential: admin.credential.cert(serviceAccount)
+					});
+				}  catch(error) {
+				}
+				db = firestore.getFirestore();
 				this.setTrue(payload);
 				break;
 			case "FALSE":
+				try {
+					admin.initializeApp({
+						credential: admin.credential.cert(serviceAccount)
+					});
+				}  catch(error) {
+				}
+				db = firestore.getFirestore();
 				this.setFalse(payload);
 				break;
 		}
