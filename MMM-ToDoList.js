@@ -32,9 +32,6 @@ Module.register("MMM-ToDoList", {
 		ToDoTable.className = "small";
 
 		for(var i=0; i<list.length; i++) {
-			listArr[i].id = 'list' + i;
-			inputArr[i].id = 'input' + i;
-
 			RowArr[i] = document.createElement("tr");
 			RowArr[i].className = "title bright";
 			ToDoTable.appendChild(RowArr[i]);
@@ -42,9 +39,11 @@ Module.register("MMM-ToDoList", {
 
 			checkArr[i] = document.createElement("td");
 			inputArr[i] = document.createElement("input");
+			inputArr[i].id = 'input' + i;
 			inputArr[i].type = 'checkbox';
 
 			listArr[i] = document.createElement("td");
+			listArr[i].id = 'list' + i;
 			listArr[i].innerHTML = list[i];
 
 			if(check[i] == 'true') {
