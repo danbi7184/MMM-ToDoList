@@ -29,6 +29,8 @@ Module.register("MMM-ToDoList", {
 		var inputArr = new Array();
 		var checkedArr = new Array();
 
+		function click(input, num);
+
 		var ToDoTable = document.createElement("table");
 		ToDoTable.className = "small";
 
