@@ -46,7 +46,7 @@ Module.register("MMM-ToDoList", {
 			listArr[i].id = 'list' + i;
 			listArr[i].innerHTML = list[i];
 
-			if(check[i] == 'true') {
+			if(check[i] == true) {
 				listArr[i].className = 'line-through';
 				inputArr[i].checked = true;
 				checkedArr[i] = true;
