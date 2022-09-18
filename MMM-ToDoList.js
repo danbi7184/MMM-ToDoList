@@ -65,10 +65,10 @@ Module.register("MMM-ToDoList", {
 				var listId = 'list' + k;
 				var getList = document.getElementById(listId);
 				if(checkedArr[k]) {
-					getList[k].className = 'none';
+					getList.className = 'none';
 					checkedArr[k].checked = false;
 				} else {
-					getList[k].className = 'line-through';
+					getList.className = 'line-through';
 					checkedArr[k].checked = true;
 				}
 			}
