@@ -64,7 +64,8 @@ Module.register("MMM-ToDoList", {
 
 		for(var k=0; k<list.length; k++) {
 			inputArr[k].onclick = () => {
-				if(inputArr[k].checked) {
+				var checked = inputArr[k].checked;
+				if(checked) {
 					listArr[k].style.color = '#ffffff';
 					listArr[k].style.textDecoration = 'none';
 					inputArr[k].checked = false;
