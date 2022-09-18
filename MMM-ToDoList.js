@@ -20,17 +20,6 @@ Module.register("MMM-ToDoList", {
 		if (!this.loaded) {
 				return wrapper;
 		}
-
-		function update(arg) {
-			var listText = document.getElementById(arg);
-			if(this.checked) {
-				listText.className = "none";
-				this.checked = false;
-			} else {
-				listText.className = "line-through";
-				this.checked = true;
-			}
-		}
 		var list = this.listInfo;
 		var check = this.checkInfo;
 
@@ -69,9 +58,20 @@ Module.register("MMM-ToDoList", {
 			checkArr[i].appendChild(inputArr[i]); 
 			RowArr[i].appendChild(checkArr[i]);
 			RowArr[i].appendChild(listArr[i]);
+		}
 
-			var arg = 'list' + i;
-			inputArr[i].onclick = update(arg);
+		for(var k=0; k<list.length; k++) {
+			inputArr[k].onclick = () => {
+				var listId = 'list' + k;
+				var getList = document.getElementById(listId);
+				if(checkedArr[k]) {
+					getList.className = 'none';
+					checkedArr[k].checked = false;
+				} else {
+					getList.className = 'line-through';
+					checkedArr[k].checked = true;
+				}
+			}
 		}
 
 		wrapper.appendChild(ToDoTable);
