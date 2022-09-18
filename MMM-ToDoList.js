@@ -52,23 +52,22 @@ Module.register("MMM-ToDoList", {
 				listArr[i].style.color = '#A5A5A5';
 				listArr[i].style.textDecoration = 'line-through';
 				inputArr[i].checked = true;
-				console.log(inputArr[i].checked);
 			} else {
 				listArr[i].style.color = '#ffffff';
 				listArr[i].style.textDecoration = 'none';
 			}
 
-			// inputArr[i].onclick = () => {
-			// 	if(inputArr[i].checked) {
-			// 		inputArr[i].checked = false;
-			// 		listArr[i].style.color = '#ffffff';
-			// 		listArr[i].style.textDecoration = 'none';
-			// 	} else {
-			// 		inputArr[i].checked = true;
-			// 		listArr[i].style.color = '#A5A5A5';
-			// 		listArr[i].style.textDecoration = 'line-through';
-			// 	}
-			// }
+			inputArr[i].onclick = () => {
+				if(inputArr[i].checked) {
+					listArr[i].style.color = '#ffffff';
+					listArr[i].style.textDecoration = 'none';
+					inputArr[i].checked = false;
+				} else {
+					listArr[i].style.color = '#A5A5A5';
+					listArr[i].style.textDecoration = 'line-through';
+					inputArr[i].checked = true;
+				}
+			}
 
 			checkArr[i].appendChild(inputArr[i]);
 			RowArr[i].appendChild(checkArr[i]);
