@@ -72,10 +72,12 @@ Module.register("MMM-ToDoList", {
 					listArr[k].style.color = '#ffffff';
 					listArr[k].style.textDecoration = 'none';
 					inputArr[k].checked = false;
+					checkedArr[k] = false;
 				} else {
 					listArr[k].style.color = '#A5A5A5';
 					listArr[k].style.textDecoration = 'line-through';
 					inputArr[k].checked = true;
+					checkedArr[k] = true;
 				}
 			}
 		}
