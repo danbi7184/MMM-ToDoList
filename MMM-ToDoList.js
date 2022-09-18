@@ -51,7 +51,7 @@ Module.register("MMM-ToDoList", {
 			if(check[i] == 'true') {
 				listArr[i].style.color = '#A5A5A5';
 				listArr[i].style.textDecoration = 'line-through';
-				inputArr[i].checked = true;
+				// inputArr[i].checked = true;
 			} else {
 				listArr[i].style.color = '#ffffff';
 				listArr[i].style.textDecoration = 'none';
