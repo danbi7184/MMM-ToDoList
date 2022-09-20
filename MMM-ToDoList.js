@@ -67,6 +67,7 @@ Module.register("MMM-ToDoList", {
 				if(checkedArr[k] == true) {
 					//getList.className = 'none';
 					//checkedArr[k].checked = false;
+					console.log(k);
 					this.sendSocketNotification("FALSE", {
 						num: k,
 					});
