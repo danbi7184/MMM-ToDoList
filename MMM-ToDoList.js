@@ -64,7 +64,7 @@ Module.register("MMM-ToDoList", {
 			inputArr[k].onclick = () => {
 				var listId = 'list' + k;
 				var getList = document.getElementById(listId);
-				if(checkedArr[k]) {
+				if(checkedArr[k] == true) {
 					//getList.className = 'none';
 					//checkedArr[k].checked = false;
 					this.sendSocketNotification("FALSE", {
