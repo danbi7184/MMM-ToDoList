@@ -75,6 +75,7 @@ module.exports = NodeHelper.create({
 
 	setFalse: async function(payload) {
 		var self = this;
+		console.log(payload);
 		var doc = 'todo' + (payload.k + 1);
 		
 		db.collection("ToDoList").doc(doc).update({
