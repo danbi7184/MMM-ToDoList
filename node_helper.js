@@ -9,38 +9,24 @@ var db;
 module.exports = NodeHelper.create({
 	start: function() {
 		console.log("Starting nodehelper: " + this.name);
+		try {
+			admin.initializeApp({
+				credential: admin.credential.cert(serviceAccount)
+			});
+		}  catch(error) {
+		}
+		db = firestore.getFirestore();
 	},
 
 	socketNotificationReceived: function(notification, payload) {
 		switch(notification) {
 			case "GET_LIST":
-				try {
-					admin.initializeApp({
-						credential: admin.credential.cert(serviceAccount)
-					});
-				}  catch(error) {
-				}
-				db = firestore.getFirestore();
 				this.getToDoList();
 				break;
 			case "TRUE":
-				try {
-					admin.initializeApp({
-						credential: admin.credential.cert(serviceAccount)
-					});
-				}  catch(error) {
-				}
-				db = firestore.getFirestore();
 				this.setTrue(payload);
 				break;
 			case "FALSE":
-				try {
-					admin.initializeApp({
-						credential: admin.credential.cert(serviceAccount)
-					});
-				}  catch(error) {
-				}
-				db = firestore.getFirestore();
 				this.setFalse(payload);
 				break;
 		}
@@ -67,20 +53,25 @@ module.exports = NodeHelper.create({
 		var self = this;
 		var doc = 'todo' + (payload.k + 1);
 	
-		db.collection("ToDoList").doc(doc).update({
-			checked: true,
-		});
+		try {
+			db.collection("ToDoList").doc(doc).update({
+				checked: true,
+			});
+		} catch(error) {
+		}
 		self.sendSocketNotification("SET_TRUE");
 	},
 
 	setFalse: async function(payload) {
 		var self = this;
-		console.log(payload);
 		var doc = 'todo' + (payload.k + 1);
 		
-		db.collection("ToDoList").doc(doc).update({
-			checked: false,
-		});
+		try{
+			db.collection("ToDoList").doc(doc).update({
+				checked: false,
+			});
+		} catch(error) {
+		}
 		self.sendSocketNotification("SET_FALSE");
 	}
 });
