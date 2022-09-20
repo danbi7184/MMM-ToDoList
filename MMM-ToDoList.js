@@ -68,7 +68,7 @@ Module.register("MMM-ToDoList", {
 					//getList.className = 'none';
 					//checkedArr[k].checked = false;
 					this.sendSocketNotification("FALSE", {
-						num: this.k,
+						num: k,
 					});
 				} else {
 					//getList.className = 'line-through';
